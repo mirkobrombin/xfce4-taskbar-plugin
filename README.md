@@ -3,7 +3,7 @@ Simple Taskbar for XFCE
 
 ![taskbar-plugin](https://i.imgur.com/6HNLRLI.png)
 
-Taskbar will be published in the ArchLinux User Repository (AUR)!
+Taskbar is now on ArchLinux User Repository [AUR]([AUR](https://aur.archlinux.org/packages/xfce4-taskbar-plugin-git/))!
 
 Installation instructions :
 ```
