@@ -24,7 +24,7 @@ extern "C"
 
 class Group;
 
-namespace Dock
+namespace Taskbar
 {
 	void init();
 	

@@ -23,12 +23,12 @@ namespace Plugin
 
 		Theme::init(gtk_widget_get_parent(GTK_WIDGET(mXfPlugin)));
 
-		Dock::init();
+		Taskbar::init();
 		Wnck::init();
 
 		//--------------------------------------------------
 
-		gtk_container_add(GTK_CONTAINER(xfPlugin), GTK_WIDGET(Dock::mBox));
+		gtk_container_add(GTK_CONTAINER(xfPlugin), GTK_WIDGET(Taskbar::mBox));
 
 		//TODO orientation, settings, ...
 
@@ -36,13 +36,13 @@ namespace Plugin
 
 		g_signal_connect(G_OBJECT(GTK_WIDGET(mXfPlugin)), "size-changed",
 		G_CALLBACK(+[](XfcePanelPlugin *plugin, gint size){
-			Dock::onPanelResize(size);
+			Taskbar::onPanelResize(size);
 			return true;
 		}), NULL);
 
 		g_signal_connect(G_OBJECT(GTK_WIDGET(mXfPlugin)), "orientation-changed",
 		G_CALLBACK(+[](XfcePanelPlugin *plugin, GtkOrientation orientation){
-			Dock::onPanelOrientationChange(orientation);
+			Taskbar::onPanelOrientationChange(orientation);
 		}), NULL);
 	}
 

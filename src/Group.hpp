@@ -1,5 +1,5 @@
-#ifndef DOCK_BUTTON_HPP
-#define DOCK_BUTTON_HPP
+#ifndef TASKBAR_BUTTON_HPP
+#define TASKBAR_BUTTON_HPP
 
 #include <iostream>
 

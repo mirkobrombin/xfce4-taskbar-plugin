@@ -9,10 +9,10 @@
 
 # Defining libraries to be built and their installation destination
 plugindir = $(libdir)/xfce4/panel/plugins
-plugin_LTLIBRARIES = libdocklike.la
+plugin_LTLIBRARIES = libtaskbar.la
 
 # List of source files needed to build the library
-libdocklike_la_SOURCES = \
+libtaskbar_la_SOURCES = \
 						Theme.cpp Theme.hpp \
 						AppInfos.cpp AppInfos.hpp \
 						Config.cpp Config.hpp \
@@ -22,22 +22,22 @@ libdocklike_la_SOURCES = \
 						GroupWindow.cpp GroupWindow.hpp \
 						Helpers.cpp Helpers.hpp \
 						Plugin.cpp Plugin.hpp \
-						Dock.cpp Dock.hpp \
+						Taskbar.cpp Taskbar.hpp \
 						Wnck.cpp Wnck.hpp \
 						register.c
 
-libdocklike_la_LDFLAGS = \
+libtaskbar_la_LDFLAGS = \
                       -avoid-version \
                       -module \
                       -no-undefined \
     -export-symbols-regex '^xfce_panel_module_(preinit|init|construct)'
 
 
-libdocklike_la_CPPFLAGS = \
+libtaskbar_la_CPPFLAGS = \
                         @LIBXFCE4PANEL_CFLAGS@ \
                         @LIBXFCE4UI_CFLAGS@
 
-libdocklike_la_LIBADD = \
+libtaskbar_la_LIBADD = \
                         @LIBXFCE4PANEL_LIBS@ \
                         @LIBXFCE4UI_LIBS@ \
                         $(GTK_LIBS) \

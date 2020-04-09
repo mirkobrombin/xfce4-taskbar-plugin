@@ -52,8 +52,8 @@ namespace Theme
 		".drop { border-left:5px solid slateblue; }";
 
 		/*"button { border:none; border-radius:0; background:none; text-shadow:none; -gtk-icon-shadow:none; box-shadow:none; }"
-		"button.docklike_menu { min-height:1.3em; }"
-		"button.docklike_menu:hover { background-color:alpha(@dl_menu_bgcolor_hover,1); color:@dl_menu_color_hover; border:none; }"
+		"button.taskbar_menu { min-height:1.3em; }"
+		"button.taskbar_menu:hover { background-color:alpha(@dl_menu_bgcolor_hover,1); color:@dl_menu_color_hover; border:none; }"
 		"box { margin:0; padding:0; }"
 		".drop { border-left:5px solid red; }";*/
 

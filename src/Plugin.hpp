@@ -21,7 +21,7 @@ extern "C"
 	#include <libxfce4ui/libxfce4ui.h>
 }
 
-#include "Dock.hpp"
+#include "Taskbar.hpp"
 
 namespace Plugin
 {

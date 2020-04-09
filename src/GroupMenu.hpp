@@ -1,5 +1,5 @@
-#ifndef DOCK_BUTTON_MENU_HPP
-#define DOCK_BUTTON_MENU_HPP
+#ifndef TASKBAR_BUTTON_MENU_HPP
+#define TASKBAR_BUTTON_MENU_HPP
 
 #include <iostream>
 
@@ -12,7 +12,7 @@ class GroupMenuItem;
 class GroupMenu
 {
 	public:
-		GroupMenu(Group* dockButton);
+		GroupMenu(Group* taskbarButton);
 
 		void add(GroupMenuItem& menuItem);
 		void remove(GroupMenuItem& menuItem);

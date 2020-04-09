@@ -1,8 +1,8 @@
 // ** opensource.org/licenses/GPL-3.0
 
-#include "Dock.hpp"
+#include "Taskbar.hpp"
 
-namespace Dock
+namespace Taskbar
 {
 	GtkWidget* mBox;
 	Store::KeyStore<AppInfo*, Group*> mGroups;
@@ -101,7 +101,7 @@ namespace Dock
 			int xthickness = padding.left + padding.right + border.left + border.right;
 			int ythickness = padding.top + padding.bottom + border.top + border.bottom;
 			
-			int width = Dock::mPanelSize - MAX(xthickness, ythickness);
+			int width = Taskbar::mPanelSize - MAX(xthickness, ythickness);
 				
 			if (width <= 21)
 				mIconSize = 16;

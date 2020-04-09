@@ -9,7 +9,7 @@
 #include "Helpers.hpp"
 #include "AppInfos.hpp"
 #include "Wnck.hpp"
-#include "Dock.hpp"
+#include "Taskbar.hpp"
 #include "Group.hpp"
 #include "GroupMenuItem.hpp"
 

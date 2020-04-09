@@ -10,7 +10,7 @@ GroupWindow::GroupWindow(WnckWindow* wnckWindow):
 	std::string groupName = Wnck::getGroupName(this); //check here for exotic group association (like libreoffice)
 	AppInfo* appInfo = AppInfos::search(groupName);
 
-	getInGroup(Dock::prepareGroup(appInfo));
+	getInGroup(Taskbar::prepareGroup(appInfo));
 
 	//signal connection
 	g_signal_connect(G_OBJECT(mWnckWindow), "name-changed",

@@ -1,9 +1,9 @@
 #include "Group.hpp"
 
-#include "Dock.hpp"
+#include "Taskbar.hpp"
 #include "GroupMenu.hpp"
 
-static GtkTargetEntry entries[1] = { { "application/docklike_group", 0 ,0 } };
+static GtkTargetEntry entries[1] = { { "application/taskbar_group", 0 ,0 } };
 
 Group::Group(AppInfo* appInfo, bool pinned):
 	mGroupMenu(this)
@@ -204,10 +204,10 @@ void Group::remove(GroupWindow* window)
 
 void Group::resize()
 {
-	gtk_widget_set_size_request(mButton, (((Dock::mPanelSize*1.2)/2)*2)-1, Dock::mPanelSize);
+	gtk_widget_set_size_request(mButton, (((Taskbar::mPanelSize*1.2)/2)*2)-1, Taskbar::mPanelSize);
 
 	GtkWidget* img = gtk_button_get_image(GTK_BUTTON(mButton));
-	gtk_image_set_pixel_size(GTK_IMAGE(img), Dock::mIconSize);
+	gtk_image_set_pixel_size(GTK_IMAGE(img), Taskbar::mIconSize);
 }
 
 void Group::setStyle(Style style, bool val)
@@ -283,7 +283,7 @@ void Group::onMouseEnter()
 {
 	mLeaveTimeout.stop();
 
-	Dock::mGroups.forEach([](std::pair<AppInfo*, Group*> g)->void
+	Taskbar::mGroups.forEach([](std::pair<AppInfo*, Group*> g)->void
 	{ 
 		g.second->mGroupMenu.mGroup->onMouseLeave();
 	});
@@ -394,9 +394,9 @@ void Group::onButtonPress(GdkEventButton* event)
 		gtk_widget_show(launchAnother);
 		gtk_widget_show(pinToggle);
 
-		gtk_menu_attach(GTK_MENU (menu), GTK_WIDGET(launchAnother), 0, 1, 0, 1);
-		gtk_menu_attach(GTK_MENU (menu), GTK_WIDGET(separator), 1, 2, 0, 2);
-		gtk_menu_attach(GTK_MENU (menu), GTK_WIDGET(pinToggle), 1, 2, 0, 2);
+		gtk_menu_attach(GTK_MENU (menu), GTK_WIDGET(pinToggle), 0, 1, 0, 1);
+		gtk_menu_attach(GTK_MENU (menu), GTK_WIDGET(separator), 0, 1, 1, 2);
+		gtk_menu_attach(GTK_MENU (menu), GTK_WIDGET(launchAnother), 0, 1, 2, 3);
 
 		g_signal_connect(G_OBJECT(launchAnother), "activate",
 		G_CALLBACK(+[](GtkMenuItem *menuitem, Group* me)
@@ -410,7 +410,7 @@ void Group::onButtonPress(GdkEventButton* event)
 			me->mPinned = !me->mPinned;
 			if(!me->mPinned)
 				me->updateStyle();
-			Dock::savePinned();
+			Taskbar::savePinned();
 			
 		}), this);
 
@@ -431,9 +431,9 @@ void Group::onButtonPress(GdkEventButton* event)
 		gtk_widget_show(launchAnother);
 		gtk_widget_show(pinToggle);
 
-		gtk_menu_attach(GTK_MENU (menu), GTK_WIDGET(launchAnother), 0, 1, 0, 1);
-		gtk_menu_attach(GTK_MENU (menu), GTK_WIDGET(separator), 1, 2, 0, 2);
-		gtk_menu_attach(GTK_MENU (menu), GTK_WIDGET(pinToggle), 1, 2, 0, 2);
+		gtk_menu_attach(GTK_MENU (menu), GTK_WIDGET(pinToggle), 0, 1, 0, 1);
+		gtk_menu_attach(GTK_MENU (menu), GTK_WIDGET(separator), 0, 1, 1, 2);
+		gtk_menu_attach(GTK_MENU (menu), GTK_WIDGET(launchAnother), 0, 1, 2, 3);
 
 		g_signal_connect(G_OBJECT(launchAnother), "activate",
 		G_CALLBACK(+[](GtkMenuItem *menuitem, Group* me)
@@ -451,7 +451,7 @@ void Group::onButtonPress(GdkEventButton* event)
 			me->mPinned = !me->mPinned;
 			if(!me->mPinned)
 				me->updateStyle();
-			Dock::savePinned();
+			Taskbar::savePinned();
 			
 		}), this);
 
@@ -531,7 +531,7 @@ bool Group::onDragMotion(GdkDragContext* context, int x, int y, guint time)
 		std::string target = name;
 		g_free (name);
 
-		if(target != "application/docklike_group")
+		if(target != "application/taskbar_group")
 		{
 			if(mWindowsCount > 0)
 			{
@@ -574,7 +574,7 @@ void Group::onDragDataReceived(const GdkDragContext* context, int x, int y, cons
 	//if(gdk_atom_name(dt) == "button")
 	
 	Group* source = (Group*)gtk_selection_data_get_data(selectionData);
-	Dock::moveButton(source, this);
+	Taskbar::moveButton(source, this);
 }
 
 void Group::onDragBegin(GdkDragContext* context)

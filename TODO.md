@@ -16,7 +16,7 @@ DONE :
 > + Basic workspaces managing
 > + Drop down list of windows
 > + Icon resizing
-> + Pinable dock buttons
+> + Pinable taskbar buttons
 > + CSS class
 > + Button reordering (d n'd)
 > + XDG Desktop Files integration

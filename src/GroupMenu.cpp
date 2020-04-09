@@ -5,12 +5,12 @@
 
 #include "Plugin.hpp"
 
-GroupMenu::GroupMenu(Group* dockButton)
+GroupMenu::GroupMenu(Group* taskbarButton)
 {
 	mWindow = gtk_window_new(GtkWindowType::GTK_WINDOW_POPUP);
 	gtk_widget_add_events(mWindow, GDK_SCROLL_MASK);
 	gtk_window_set_default_size(GTK_WINDOW(mWindow), 1, 1);
-	mGroup = dockButton;
+	mGroup = taskbarButton;
 
 	mVisible = mMouseHover = false;
 
@@ -21,9 +21,11 @@ GroupMenu::GroupMenu(Group* dockButton)
 
 	g_signal_connect(G_OBJECT(mWindow), "enter-notify-event",
 	G_CALLBACK(+[](GtkWidget* widget, GdkEvent* event, GroupMenu* me){
-		me->mGroup->setStyle(Group::Style::Hover, true);
-		me->mGroup->mLeaveTimeout.stop();
-		me->mMouseHover = true;
+		if(me->mGroup->mWindowsCount > 1){
+			me->mGroup->setStyle(Group::Style::Hover, true);
+			me->mGroup->mLeaveTimeout.stop();
+			me->mMouseHover = true;
+		}
 		return true;
 	}), this);
 
