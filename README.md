@@ -24,4 +24,4 @@ cairo-1.16
 libwnck-3.0
 
 
-Based on nsz32/docklike-plugin original work.
+Based on nsz32 original work.
