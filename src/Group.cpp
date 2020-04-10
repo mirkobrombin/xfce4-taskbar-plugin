@@ -132,10 +132,6 @@ Group::Group(AppInfo* appInfo, bool pinned):
 	gtk_drag_dest_set(mButton, GTK_DEST_DEFAULT_DROP, entries, 1, GDK_ACTION_MOVE);
 
 
-
-
-
-
 	if(mPinned) gtk_widget_show(mButton);
 
 	g_object_set_data(G_OBJECT(mButton),"group", this);
@@ -146,8 +142,6 @@ Group::Group(AppInfo* appInfo, bool pinned):
 	gtk_button_set_always_show_image(GTK_BUTTON(mButton), true);
 
 
-
-
 	if(mAppInfo != NULL && !mAppInfo->icon.empty())
 	{
 		/*	std::cout << "NEW GROUP:" << mAppInfo->name << std::endl;
@@ -155,12 +149,10 @@ Group::Group(AppInfo* appInfo, bool pinned):
 			std::cout << "ICON:" << mAppInfo->icon << std::endl << std::endl;*/
 		if(mAppInfo->icon[0] == '/')
 		{
-			//set_image_from_icon_name(mAppInfo->icon);
-
-			/* TODO RESIZE : Gtk::Image* z = new Gtk::Image(ai->icon);
-			z->set_pixel_size(16);
-
-			set_image(*z);*/
+			GdkPixbuf* iconPixbuf = gdk_pixbuf_new_from_file_at_scale (mAppInfo->icon.c_str(), 16, 16, true, NULL);
+			GtkWidget *icon = gtk_image_new_from_pixbuf (iconPixbuf);
+			
+			gtk_button_set_image(GTK_BUTTON(mButton), icon);
 		}
 		else
 		{
