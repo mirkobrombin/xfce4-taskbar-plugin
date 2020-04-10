@@ -21,11 +21,9 @@ GroupMenu::GroupMenu(Group* taskbarButton)
 
 	g_signal_connect(G_OBJECT(mWindow), "enter-notify-event",
 	G_CALLBACK(+[](GtkWidget* widget, GdkEvent* event, GroupMenu* me){
-		if(me->mGroup->mWindowsCount > 1){
-			me->mGroup->setStyle(Group::Style::Hover, true);
-			me->mGroup->mLeaveTimeout.stop();
-			me->mMouseHover = true;
-		}
+		me->mGroup->setStyle(Group::Style::Hover, true);
+		me->mGroup->mLeaveTimeout.stop();
+		me->mMouseHover = true;
 		return true;
 	}), this);
 
@@ -73,7 +71,7 @@ void GroupMenu::popup()
 
 	xfce_panel_plugin_position_widget(Plugin::mXfPlugin, mWindow, mGroup->mButton, &wx, &wy);
 	gtk_window_move(GTK_WINDOW(mWindow), wx, wy);
-	if(mGroup->mWindowsCount > 0)
+	if(mGroup->mWindowsCount > 1)
 		gtk_widget_show(mWindow);
 
 	gtk_window_resize(GTK_WINDOW(mWindow), 1, 1);
