@@ -52,7 +52,8 @@ void GroupMenu::add(GroupMenuItem& menuItem)
 	if(mGroup->mSHover)
 	{
 		popup();
-		gtk_widget_show(mWindow);
+		if(mGroup->mWindowsCount > 1)
+			gtk_widget_show(mWindow);
 	}
 }
 
