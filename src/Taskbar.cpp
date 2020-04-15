@@ -91,27 +91,23 @@ namespace Taskbar
 
 		mPanelSize = size;
 
-		#if LIBXFCE4PANEL_CHECK_VERSION(4,13,0)
-			mIconSize = xfce_panel_plugin_get_icon_size(XFCE_PANEL_PLUGIN(Plugin::mXfPlugin));
-		#else
-			GtkStyleContext* context = gtk_widget_get_style_context(GTK_WIDGET(mGroups.first()->mButton));
-			GtkBorder padding, border;
-			gtk_style_context_get_padding (context, gtk_widget_get_state_flags(GTK_WIDGET(mBox)), &padding);
-			gtk_style_context_get_border (context, gtk_widget_get_state_flags(GTK_WIDGET(mBox)), &border);
-			int xthickness = padding.left + padding.right + border.left + border.right;
-			int ythickness = padding.top + padding.bottom + border.top + border.bottom;
+		GtkStyleContext* context = gtk_widget_get_style_context(GTK_WIDGET(mGroups.first()->mButton));
+		GtkBorder padding, border;
+		gtk_style_context_get_padding (context, gtk_widget_get_state_flags(GTK_WIDGET(mBox)), &padding);
+		gtk_style_context_get_border (context, gtk_widget_get_state_flags(GTK_WIDGET(mBox)), &border);
+		int xthickness = padding.left + padding.right + border.left + border.right + 12;
+		int ythickness = padding.top + padding.bottom + border.top + border.bottom + 12;
+		
+		int width = Taskbar::mPanelSize - MAX(xthickness, ythickness);
 			
-			int width = Taskbar::mPanelSize - MAX(xthickness, ythickness);
-				
-			if (width <= 21)
-				mIconSize = 16;
-			else if (width >=22 && width <= 29)
-				mIconSize = 24;
-			else if (width >= 30 && width <= 40)
-				mIconSize = 32;
-			else
-				mIconSize = width;
-		#endif
+		if (width <= 21)
+			mIconSize = 16;
+		else if (width >=22 && width <= 29)
+			mIconSize = 24;
+		else if (width >= 30 && width <= 40)
+			mIconSize = 32;
+		else
+			mIconSize = width;
 
 		mGroups.forEach([](std::pair<AppInfo*, Group*> g)->void { g.second->resize(); });
 	}
