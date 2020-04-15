@@ -1,17 +1,15 @@
 TODO :
 
-+ Orientation
 + Setings UI
 + Launcher settings UI
 + i18n
-+ Support for special launcher like mailwatch, places, music player (via MPRIS), ...
 + Show only windows from active workspace
-
-Exotics windows :
-- Libreoffice / Openoffice (imply changing the group of a window)
 
 DONE :
 
+> + Resize icons with panel
+> + Move "Pin/Unpin" in list
+> + Fix missing icons for custom path
 > + Basic orientation managing
 > + Basic workspaces managing
 > + Drop down list of windows

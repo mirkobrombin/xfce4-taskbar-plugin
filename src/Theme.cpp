@@ -33,7 +33,6 @@ namespace Theme
 
 		std::string cssStyle = setupColors() +
 		"button { border:none; border-radius:0; background:none; text-shadow:none; -gtk-icon-shadow:none; box-shadow:none; }"
-		//"grid { min-height:1.3em; background-color:red; }"
 
 		".menu_item image { margin-left:0.4em;  }"
 		".menu_item label { margin:0.6em 0.5em 0.5em 0.5em; }"
@@ -51,12 +50,6 @@ namespace Theme
 		".menu { background-color:@dl_menu_bgcolor; box-shadow:inset 0 0 0 1px alpha(black, 0.2); }"
 		".drop { border-left:5px solid slateblue; }";
 
-		/*"button { border:none; border-radius:0; background:none; text-shadow:none; -gtk-icon-shadow:none; box-shadow:none; }"
-		"button.taskbar_menu { min-height:1.3em; }"
-		"button.taskbar_menu:hover { background-color:alpha(@dl_menu_bgcolor_hover,1); color:@dl_menu_color_hover; border:none; }"
-		"box { margin:0; padding:0; }"
-		".drop { border-left:5px solid red; }";*/
-
 		if(!gtk_css_provider_load_from_data(mCssProvider, cssStyle.c_str(), -1, NULL))
 		{
 			std::cerr << "ERROR: CSS LOAD FAILED !" << std::endl;
@@ -65,11 +58,6 @@ namespace Theme
 		{
 			gtk_style_context_add_provider_for_screen(mScreen, GTK_STYLE_PROVIDER(mCssProvider), GTK_STYLE_PROVIDER_PRIORITY_USER);
 		}
-
-		/*return	"@define-color dl_menu_bgcolor " + menuBg + ";"
-				"@define-color dl_menu_item_color " + itemLabel + ";"
-				"@define-color dl_menu_item_color_hover " + itemLabelHover + ";"
-				"@define-color dl_menu_item_bgcolor_hover " + itemBgHover + ";";*/
 
 		
 	}
