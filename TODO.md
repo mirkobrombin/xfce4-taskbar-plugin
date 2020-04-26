@@ -1,7 +1,5 @@
 TODO :
 
-+ Setings UI
-+ Launcher settings UI
 + i18n
 + Show only windows from active workspace
 
