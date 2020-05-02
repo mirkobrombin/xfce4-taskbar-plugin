@@ -24,4 +24,4 @@ cairo-1.16
 libwnck-3.0
 
 
-Based on nsz32 original work.
+This is a nsz32/docklike fork. If you search for a more maintained version, I would recommend you to use the official one.
