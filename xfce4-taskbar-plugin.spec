@@ -28,7 +28,7 @@ Requires:       xfce4-settings
 
 
 %description
-A modern Taskbar for XFCE4
+A WIP modern taskbar for XFCE C++ - GTK3 - CSS - DOCK-LIKE - MINIMALISM
 
 %prep
 %setup -q -n taskbar-plugin-master

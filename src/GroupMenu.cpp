@@ -10,7 +10,7 @@
 #include "GroupMenuItem.hpp"
 #include "Plugin.hpp"
 
-GroupMenu::GroupMenu(Group* taskbarButton)
+GroupMenu::GroupMenu(Group* dockButton)
 {
 	mWindow = gtk_window_new(GtkWindowType::GTK_WINDOW_POPUP);
 	gtk_widget_add_events(mWindow, GDK_SCROLL_MASK);

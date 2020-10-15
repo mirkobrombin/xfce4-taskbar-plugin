@@ -13,10 +13,6 @@
 #include <iostream>
 
 #include "AppInfos.hpp"
-<<<<<<< HEAD
-#include "Wnck.hpp"
-=======
->>>>>>> mirai-patch/master
 #include "Taskbar.hpp"
 #include "Group.hpp"
 #include "GroupMenuItem.hpp"

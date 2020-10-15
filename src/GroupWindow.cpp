@@ -14,9 +14,6 @@ GroupWindow::GroupWindow(WnckWindow* wnckWindow)
 	std::string groupName = Wnck::getGroupName(this); // check here for exotic group association (like libreoffice)
 	AppInfo* appInfo = AppInfos::search(groupName);
 
-<<<<<<< HEAD
-	getInGroup(Taskbar::prepareGroup(appInfo));
-=======
 	mGroup = Taskbar::prepareGroup(appInfo);
 
 	/*std::cout << "SEARCHING GROUPNAME:" << groupName << std::endl;
@@ -28,7 +25,6 @@ GroupWindow::GroupWindow(WnckWindow* wnckWindow)
 		std::cout << "> APPINFO PATH:" << appInfo->path << std::endl;
 		std::cout << "> APPINFO ICON:" << appInfo->icon << std::endl;
 	}*/
->>>>>>> mirai-patch/master
 
 	// signal connection
 	g_signal_connect(G_OBJECT(mWnckWindow), "name-changed",

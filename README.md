@@ -15,5 +15,4 @@ make
 sudo make install
 ```
 
-
-This is a nsz32/docklike fork.
+Based on nsz32/docklike.
