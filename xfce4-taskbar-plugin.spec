@@ -13,7 +13,7 @@ Summary:        A modern taskbar for XFCE
 
 License:        GPLv3
 URL:            http://goodies.xfce.org/projects/panel-plugins/%{name}
-Source0:        https://github.com/nsz32/taskbar-plugin/archive/master.tar.gz
+Source0:        https://git.mirko.pm/brombinmirko/xfce4-taskbar-plugin/-/archive/master/xfce4-taskbar-plugin-master.tar.gz
 
 BuildRequires:  gcc-c++
 BuildRequires:  libxfce4ui-devel >= %{xfceversion}

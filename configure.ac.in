@@ -18,7 +18,7 @@ dnl ***************************
 dnl *** Initialize autoconf ***
 dnl ***************************
 AC_COPYRIGHT([Copyright (c) 2020 Nicolas Szabo])
-AC_INIT([Taskbar], [project_version], [https://github.com/nsz32/taskbar-plugin/issues], [xfce4-taskbar-plugin], [https://github.com/nsz32/taskbar-plugin])
+AC_INIT([Taskbar], [project_version], [https://git.mirko.pm/brombinmirko/xfce4-taskbar-plugin/issues], [xfce4-taskbar-plugin], [https://git.mirko.pm/brombinmirko/xfce4-taskbar-plugin])
 AC_PREREQ([2.50])
 AC_CANONICAL_TARGET()
 AC_REVISION([project_version_build])

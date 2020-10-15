@@ -22,4 +22,4 @@ sudo make install
 - scales icons according to the size of the taskbar with a fixed margin
 - hide (by default) the list of windows if there is only one
 
-Based on nsz32/docklike.
+Based on nsz32/docklike plugin for XFCE.

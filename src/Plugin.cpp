@@ -75,6 +75,7 @@ namespace Plugin
 	{
 		const gchar* authors[] = {
 			"Nicolas Szabo <nszabo@vivaldi.net> © 2019-2020  |  github.com/nsz32",
+			"Mirko Brombin <send@mirko.pm> © 2020  |  git.mirko.pm/brombinmirko", "",
 			_("Contributors:"),
 			"David Keogh <davidtkeogh@gmail.com> © 2020  |  github.com/davekeogh", "",
 			NULL};
@@ -84,7 +85,7 @@ namespace Plugin
 			"Dmitry K <dkabishchev@ya.ru> : ru | github.com/dmitryKB";
 
 		gtk_show_about_dialog(NULL,
-			"program-name", "Taskbar Taskbar",
+			"program-name", "Taskbar",
 			"logo-icon-name", "preferences-system-windows",
 			"comments", _("A modern, minimalist taskbar for XFCE."),
 			//"version", PACKAGE_VERSION,
@@ -99,8 +100,8 @@ namespace Plugin
 
 					   "You should have received a copy of the GNU General Public License\n"
 					   "along with this program.  If not, see <https://www.gnu.org/licenses/>.",
-			"website", "https://github.com/nsz32/taskbar-plugin/",
-			"website-label", "taskbar-plugin",
+			"website", "https://git.mirko.pm/brombinmirko/xfce4-taskbar-plugin",
+			"website-label", "xfce4-taskbar-plugin",
 			"authors", authors,
 			"translator-credits", translators,
 			//"documenters", documenters,
