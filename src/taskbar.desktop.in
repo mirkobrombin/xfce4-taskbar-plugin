@@ -1,7 +1,7 @@
 [Xfce Panel]
 Type=X-XFCE-PanelPlugin
 Encoding=UTF-8
-Name=Taskbar Taskbar
+Name=Taskbar
 _Comment=A modern, minimalist taskbar for XFCE
 Icon=preferences-system-windows
 X-XFCE-Module=taskbar

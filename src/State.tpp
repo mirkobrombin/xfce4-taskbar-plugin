@@ -1,5 +1,5 @@
 /*
- * Taskbar Taskbar - A modern, minimalist taskbar for XFCE
+ * Taskbar - A modern, minimalist taskbar for XFCE
  * Copyright (c) 2019-2020 Nicolas Szabo <nszabo@vivaldi.net>
  * gnu.org/licenses/gpl-3.0
  */
