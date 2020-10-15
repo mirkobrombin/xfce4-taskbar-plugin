@@ -15,4 +15,9 @@ make
 sudo make install
 ```
 
+## Differences
+- 'human' position for the pin/unpin button
+- scales icons according to the size of the taskbar with a fixed margin
+- hide (by default) the list of windows if there is only one
+
 Based on nsz32/docklike.
