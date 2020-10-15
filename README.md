@@ -11,6 +11,16 @@ A simple Taskbar for XFCE
 - libwnck-3.0
 
 ## Installation
+
+### Arch Linux
+Taskbar can be installed from the [officiale AUR package](https://aur.archlinux.org/packages/xfce4-taskbar-plugin-git/).
+
+Ex. from yay AUR Helper:
+```
+yay -S xfce4-taskbar-plugin-git
+```
+
+### Other distribution
 ```
 ./autogen.sh
 make
