@@ -1,15 +1,15 @@
 /*
- * Docklike Taskbar - A modern, minimalist taskbar for XFCE
+ * Taskbar Taskbar - A modern, minimalist taskbar for XFCE
  * Copyright (c) 2019-2020 Nicolas Szabo <nszabo@vivaldi.net>
  * gnu.org/licenses/gpl-3.0
  */
 
 #include "Group.hpp"
 
-#include "Dock.hpp"
+#include "Taskbar.hpp"
 #include "GroupMenu.hpp"
 
-static GtkTargetEntry entries[1] = {{"application/docklike_group", 0, 0}};
+static GtkTargetEntry entries[1] = {{"application/taskbar_group", 0, 0}};
 static GtkTargetList* targetList = gtk_target_list_new(entries, 1);
 
 Group::Group(AppInfo* appInfo, bool pinned) : mGroupMenu(this)
@@ -202,7 +202,7 @@ void Group::add(GroupWindow* window)
 	if (mWindowsCount == 1 && !mPinned)
 	{
 		std::cout << "REORDER OK:" << 0 << std::endl;
-		gtk_box_reorder_child(GTK_BOX(Dock::mBox), GTK_WIDGET(mButton), -1);
+		gtk_box_reorder_child(GTK_BOX(Taskbar::mBox), GTK_WIDGET(mButton), -1);
 	}
 }
 
@@ -265,13 +265,13 @@ void Group::closeAll()
 
 void Group::resize()
 {
-	gtk_widget_set_size_request(mButton, (round((Dock::mPanelSize * 1.2) / 2) * 2), Dock::mPanelSize);
+	gtk_widget_set_size_request(mButton, (round((Taskbar::mPanelSize * 1.2) / 2) * 2), Taskbar::mPanelSize);
 
 	GtkWidget* img;
 
 	if (mIconPixbuf != NULL)
 	{
-		GdkPixbuf* pixbuf = gdk_pixbuf_scale_simple(mIconPixbuf, Dock::mIconSize, Dock::mIconSize, GDK_INTERP_HYPER);
+		GdkPixbuf* pixbuf = gdk_pixbuf_scale_simple(mIconPixbuf, Taskbar::mIconSize, Taskbar::mIconSize, GDK_INTERP_HYPER);
 		GtkWidget* icon = gtk_image_new_from_pixbuf(pixbuf);
 		gtk_button_set_image(GTK_BUTTON(mButton), icon);
 		img = gtk_button_get_image(GTK_BUTTON(mButton));
@@ -279,7 +279,7 @@ void Group::resize()
 	else
 	{
 		img = gtk_button_get_image(GTK_BUTTON(mButton));
-		gtk_image_set_pixel_size(GTK_IMAGE(img), Dock::mIconSize);
+		gtk_image_set_pixel_size(GTK_IMAGE(img), Taskbar::mIconSize);
 	}
 
 	gtk_widget_set_valign(img, GTK_ALIGN_CENTER);
@@ -613,7 +613,7 @@ void Group::onMouseEnter()
 {
 	mLeaveTimeout.stop();
 
-	Dock::mGroups.forEach([this](std::pair<AppInfo*, Group*> g) -> void {
+	Taskbar::mGroups.forEach([this](std::pair<AppInfo*, Group*> g) -> void {
 		if (&(g.second->mGroupMenu) != &(this->mGroupMenu))
 			g.second->mGroupMenu.mGroup->onMouseLeave();
 	});
@@ -759,7 +759,7 @@ bool Group::onDragMotion(GtkWidget* widget, GdkDragContext* context, int x, int 
 		std::string target = name;
 		g_free(name);
 
-		if (target != "application/docklike_group")
+		if (target != "application/taskbar_group")
 		{
 			if (mWindowsCount > 0)
 			{
@@ -803,7 +803,7 @@ void Group::onDragDataReceived(const GdkDragContext* context, int x, int y, cons
 	// if(gdk_atom_name(dt) == "button")
 
 	Group* source = (Group*)gtk_selection_data_get_data(selectionData);
-	Dock::moveButton(source, this);
+	Taskbar::moveButton(source, this);
 }
 
 void Group::onDragBegin(GdkDragContext* context) { gtk_drag_set_icon_name(context, mAppInfo->icon.c_str(), 0, 0); }

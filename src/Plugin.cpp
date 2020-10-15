@@ -1,5 +1,5 @@
 /*
- * Docklike Taskbar - A modern, minimalist taskbar for XFCE
+ * Taskbar Taskbar - A modern, minimalist taskbar for XFCE
  * Copyright (c) 2019-2020 Nicolas Szabo <nszabo@vivaldi.net>
  * gnu.org/licenses/gpl-3.0
  */
@@ -26,14 +26,14 @@ namespace Plugin
 
 		Settings::init();
 		AppInfos::init();
-		Dock::init();
+		Taskbar::init();
 		Wnck::init();
 		Theme::init();
 		Hotkeys::init();
 
 		//--------------------------------------------------
 
-		gtk_container_add(GTK_CONTAINER(mXfPlugin), GTK_WIDGET(Dock::mBox));
+		gtk_container_add(GTK_CONTAINER(mXfPlugin), GTK_WIDGET(Taskbar::mBox));
 
 		xfce_panel_plugin_menu_show_configure(mXfPlugin);
 		xfce_panel_plugin_menu_show_about(mXfPlugin);
@@ -42,14 +42,14 @@ namespace Plugin
 
 		g_signal_connect(G_OBJECT(GTK_WIDGET(mXfPlugin)), "size-changed",
 			G_CALLBACK(+[](XfcePanelPlugin* plugin, gint size) {
-				Dock::onPanelResize(size);
+				Taskbar::onPanelResize(size);
 				return true;
 			}),
 			NULL);
 
 		g_signal_connect(G_OBJECT(GTK_WIDGET(mXfPlugin)), "orientation-changed",
 			G_CALLBACK(+[](XfcePanelPlugin* plugin, GtkOrientation orientation) {
-				Dock::onPanelOrientationChange(orientation);
+				Taskbar::onPanelOrientationChange(orientation);
 			}),
 			NULL);
 
@@ -84,7 +84,7 @@ namespace Plugin
 			"Dmitry K <dkabishchev@ya.ru> : ru | github.com/dmitryKB";
 
 		gtk_show_about_dialog(NULL,
-			"program-name", "Docklike Taskbar",
+			"program-name", "Taskbar Taskbar",
 			"logo-icon-name", "preferences-system-windows",
 			"comments", _("A modern, minimalist taskbar for XFCE."),
 			//"version", PACKAGE_VERSION,
@@ -99,8 +99,8 @@ namespace Plugin
 
 					   "You should have received a copy of the GNU General Public License\n"
 					   "along with this program.  If not, see <https://www.gnu.org/licenses/>.",
-			"website", "https://github.com/nsz32/docklike-plugin/",
-			"website-label", "docklike-plugin",
+			"website", "https://github.com/nsz32/taskbar-plugin/",
+			"website-label", "taskbar-plugin",
 			"authors", authors,
 			"translator-credits", translators,
 			//"documenters", documenters,

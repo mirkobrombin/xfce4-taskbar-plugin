@@ -1,11 +1,11 @@
-# Docklike-plugin i18n file
+# Taskbar-plugin i18n file
 # Copyright (C) 2020 Nicolas Szabo
-# This file is distributed under the same license as the Docklike package.
+# This file is distributed under the same license as the Taskbar package.
 # Nicolas Szabo <nszabo@vivaldi.net>, 2020.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Docklike 0.9\n"
+"Project-Id-Version: Taskbar 0.9\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-10 16:27+0200\n"
 "PO-Revision-Date: 2020-09-13 16:13+0400\n"
@@ -59,7 +59,7 @@ msgstr ""
 "Проверьте свои настройки Xfce."
 
 #. namespace SettingsDialog
-#: ../src/docklike.desktop.in.h:1
+#: ../src/taskbar.desktop.in.h:1
 msgid "A modern, minimalist taskbar for XFCE"
 msgstr "Простая и современная панель задач для XFCE."
 

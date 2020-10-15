@@ -1,5 +1,5 @@
 /*
- * Docklike Taskbar - A modern, minimalist taskbar for XFCE
+ * Taskbar Taskbar - A modern, minimalist taskbar for XFCE
  * Copyright (c) 2019-2020 Nicolas Szabo <nszabo@vivaldi.net>
  * gnu.org/licenses/gpl-3.0
  */
@@ -18,7 +18,7 @@ namespace Theme
 	{
 		mScreen = gdk_screen_get_default();
 		mCssProvider = gtk_css_provider_new();
-		mStyleContext = gtk_widget_get_style_context(Dock::mBox);
+		mStyleContext = gtk_widget_get_style_context(Taskbar::mBox);
 
 		g_signal_connect(G_OBJECT(mStyleContext), "changed",
 			G_CALLBACK(+[](GtkStyleContext* stylecontext) { load(); }), NULL);
@@ -65,8 +65,8 @@ namespace Theme
 			".stld .drop { border-left:0.5em solid slateblue; }";
 
 		/*"button { border:none; border-radius:0; background:none; text-shadow:none;
-    -gtk-icon-shadow:none; box-shadow:none; }" "button.docklike_menu {
-    min-height:1.3em; }" "button.docklike_menu:hover {
+    -gtk-icon-shadow:none; box-shadow:none; }" "button.taskbar_menu {
+    min-height:1.3em; }" "button.taskbar_menu:hover {
     background-color:alpha(@dl_menu_bgcolor_hover,1);
     color:@dl_menu_color_hover; border:none; }" "box { margin:0; padding:0; }"
     ".drop { border-left:5px solid red; }";*/

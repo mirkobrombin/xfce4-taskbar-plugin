@@ -1,5 +1,5 @@
 dnl
-dnl Docklike Taskbar - A modern, minimalist taskbar for Xfce
+dnl Taskbar Taskbar - A modern, minimalist taskbar for Xfce
 dnl --------------------------------------------------------
 dnl (c) 2020		Nicolas Szabo <nszabo@vivaldi.net>
 dnl
@@ -18,7 +18,7 @@ dnl ***************************
 dnl *** Initialize autoconf ***
 dnl ***************************
 AC_COPYRIGHT([Copyright (c) 2020 Nicolas Szabo])
-AC_INIT([Docklike], [project_version], [https://github.com/nsz32/docklike-plugin/issues], [xfce4-docklike-plugin], [https://github.com/nsz32/docklike-plugin])
+AC_INIT([Taskbar], [project_version], [https://github.com/nsz32/taskbar-plugin/issues], [xfce4-taskbar-plugin], [https://github.com/nsz32/taskbar-plugin])
 AC_PREREQ([2.50])
 AC_CANONICAL_TARGET()
 AC_REVISION([project_version_build])

@@ -1,5 +1,5 @@
 /*
- * Docklike Taskbar - A modern, minimalist taskbar for XFCE
+ * Taskbar Taskbar - A modern, minimalist taskbar for XFCE
  * Copyright (c) 2019-2020 Nicolas Szabo <nszabo@vivaldi.net>
  * gnu.org/licenses/gpl-3.0
  */
@@ -186,7 +186,7 @@ namespace Wnck
 
 			gtk_widget_show(launchAnother);
 
-			gtk_menu_attach(GTK_MENU(menu), GTK_WIDGET(launchAnother), 0, 1, 0, 1);
+			gtk_menu_attach(GTK_MENU(menu), GTK_WIDGET(launchAnother), 0, 1, 2, 3);
 
 			g_signal_connect(G_OBJECT(launchAnother), "activate",
 				G_CALLBACK(+[](GtkMenuItem* menuitem, AppInfo* appInfo) {
@@ -202,15 +202,15 @@ namespace Wnck
 				gtk_widget_show(separator);
 				gtk_widget_show(pinToggle);
 
-				gtk_menu_attach(GTK_MENU(menu), GTK_WIDGET(separator), 1, 2, 0, 1);
-				gtk_menu_attach(GTK_MENU(menu), GTK_WIDGET(pinToggle), 1, 2, 0, 1);
+				gtk_menu_attach(GTK_MENU(menu), GTK_WIDGET(pinToggle), 0, 1, 0, 1);
+				gtk_menu_attach(GTK_MENU(menu), GTK_WIDGET(separator), 0, 1, 1, 2);
 
 				g_signal_connect(G_OBJECT(pinToggle), "activate",
 					G_CALLBACK(+[](GtkMenuItem* menuitem, Group* group) {
 						group->mPinned = !group->mPinned;
 						if (!group->mPinned)
 							group->updateStyle();
-						Dock::savePinned();
+						Taskbar::savePinned();
 					}),
 					group);
 			}

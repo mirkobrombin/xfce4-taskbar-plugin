@@ -1,5 +1,5 @@
 /*
- * Docklike Taskbar - A modern, minimalist taskbar for XFCE
+ * Taskbar Taskbar - A modern, minimalist taskbar for XFCE
  * Copyright (c) 2019-2020 Nicolas Szabo <nszabo@vivaldi.net>
  * gnu.org/licenses/gpl-3.0
  */
@@ -40,7 +40,7 @@ namespace Settings
 				g_key_file_set_integer(mFile, "user", "indicatorOrientation", indicatorOrientation);
 				saveFile();
 
-				Dock::redraw();
+				Taskbar::redraw();
 			});
 
 		forceIconSize.setup(g_key_file_get_boolean(mFile, "user", "forceIconSize", NULL),
@@ -48,7 +48,7 @@ namespace Settings
 				g_key_file_set_boolean(mFile, "user", "forceIconSize", forceIconSize);
 				saveFile();
 
-				Dock::onPanelResize();
+				Taskbar::onPanelResize();
 			});
 
 		iconSize.setup(g_key_file_get_integer(mFile, "user", "iconSize", NULL),
@@ -56,7 +56,7 @@ namespace Settings
 				g_key_file_set_integer(mFile, "user", "iconSize", iconSize);
 				saveFile();
 
-				Dock::onPanelResize();
+				Taskbar::onPanelResize();
 			});
 
 		indicatorStyle.setup(g_key_file_get_integer(mFile, "user", "indicatorStyle", NULL),
@@ -64,7 +64,7 @@ namespace Settings
 				g_key_file_set_integer(mFile, "user", "indicatorStyle", indicatorStyle);
 				saveFile();
 
-				Dock::redraw();
+				Taskbar::redraw();
 			});
 
 		gchar* colorString = g_key_file_get_string(mFile, "user", "indicatorColor", NULL);
@@ -77,7 +77,7 @@ namespace Settings
 				g_key_file_set_string(mFile, "user", "indicatorColor", gdk_rgba_to_string(indicatorColor));
 				saveFile();
 
-				Dock::redraw();
+				Taskbar::redraw();
 			});
 
 		noWindowsListIfSingle.setup(g_key_file_get_boolean(mFile, "user", "noWindowsListIfSingle", NULL),

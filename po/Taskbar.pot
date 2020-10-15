@@ -58,7 +58,7 @@ msgid ""
 msgstr ""
 
 #. namespace SettingsDialog
-#: ../src/docklike.desktop.in.h:1
+#: ../src/taskbar.desktop.in.h:1
 msgid "A modern, minimalist taskbar for XFCE"
 msgstr ""
 

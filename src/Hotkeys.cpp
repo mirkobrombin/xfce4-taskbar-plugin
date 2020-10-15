@@ -1,5 +1,5 @@
 /*
- * Docklike Taskbar - A modern, minimalist taskbar for XFCE
+ * Taskbar Taskbar - A modern, minimalist taskbar for XFCE
  * Copyright (c) 2019-2020 Nicolas Szabo <nszabo@vivaldi.net>
  * gnu.org/licenses/gpl-3.0
  */
@@ -30,17 +30,17 @@ namespace Hotkeys
 		case ModifierChange:
 			if (GDK_MOD4_MASK & xevent->xkey.keycode)
 			{
-				Dock::hoverSupered(true);
+				Taskbar::hoverSupered(true);
 			}
 			else
 			{
-				Dock::hoverSupered(false);
+				Taskbar::hoverSupered(false);
 			}
 			break;
 		case KeyPress:
 			if (xevent->xkey.keycode >= m1Keycode && xevent->xkey.keycode <= m1Keycode + NbHotkeys)
 			{
-				Dock::activateGroup(xevent->xkey.keycode - m1Keycode, xevent->xkey.time);
+				Taskbar::activateGroup(xevent->xkey.keycode - m1Keycode, xevent->xkey.time);
 			}
 			break;
 		}

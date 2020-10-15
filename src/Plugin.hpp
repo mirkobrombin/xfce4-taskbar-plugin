@@ -1,5 +1,5 @@
 /*
- * Docklike Taskbar - A modern, minimalist taskbar for XFCE
+ * Taskbar Taskbar - A modern, minimalist taskbar for XFCE
  * Copyright (c) 2019-2020 Nicolas Szabo <nszabo@vivaldi.net>
  * gnu.org/licenses/gpl-3.0
  */
@@ -27,7 +27,7 @@ extern "C"
 #include <libxfce4util/libxfce4util.h>
 }
 
-#include "Dock.hpp"
+#include "Taskbar.hpp"
 
 namespace Plugin
 {

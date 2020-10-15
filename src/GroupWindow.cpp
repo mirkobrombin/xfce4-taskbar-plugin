@@ -1,5 +1,5 @@
 /*
- * Docklike Taskbar - A modern, minimalist taskbar for XFCE
+ * Taskbar Taskbar - A modern, minimalist taskbar for XFCE
  * Copyright (c) 2019-2020 Nicolas Szabo <nszabo@vivaldi.net>
  * gnu.org/licenses/gpl-3.0
  */
@@ -14,7 +14,7 @@ GroupWindow::GroupWindow(WnckWindow* wnckWindow)
 	std::string groupName = Wnck::getGroupName(this); // check here for exotic group association (like libreoffice)
 	AppInfo* appInfo = AppInfos::search(groupName);
 
-	mGroup = Dock::prepareGroup(appInfo);
+	mGroup = Taskbar::prepareGroup(appInfo);
 
 	/*std::cout << "SEARCHING GROUPNAME:" << groupName << std::endl;
 	if (appInfo == NULL)
@@ -61,7 +61,7 @@ GroupWindow::GroupWindow(WnckWindow* wnckWindow)
 	g_signal_connect(G_OBJECT(mWnckWindow), "class-changed",
 		G_CALLBACK(+[](WnckWindow* window, GroupWindow* me) {
 			std::string groupName = Wnck::getGroupName(me);
-			Group* group = Dock::prepareGroup(AppInfos::search(groupName));
+			Group* group = Taskbar::prepareGroup(AppInfos::search(groupName));
 			if (group != me->mGroup)
 			{
 				me->leaveGroup();
