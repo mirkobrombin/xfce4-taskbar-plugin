@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Simple Taskbar for XFCE
 -----------------------------------
 
@@ -11,11 +12,26 @@ Installation instructions :
 yay -S xfce4-taskbar-plugin-git
 
 # On any other distro :
+=======
+# xfce4-taskbar-plugin
+A simple Taskbar for XFCE
+
+## Building dependency
+- libxfce4panel-2.0
+- libxfce4ui-2
+- gtk-3.0
+- cairo-1.16
+- libwnck-3.0
+
+## Installation
+```
+>>>>>>> mirai-patch/master
 ./autogen.sh
 make
 sudo make install
 ```
 
+<<<<<<< HEAD
 Building dependency :
 libxfce4panel-2.0
 libxfce4ui-2
@@ -25,3 +41,6 @@ libwnck-3.0
 
 
 This is a nsz32/docklike fork. If you search for a more maintained version, I would recommend you to use the official one.
+=======
+Based on nsz32/docklike.
+>>>>>>> mirai-patch/master

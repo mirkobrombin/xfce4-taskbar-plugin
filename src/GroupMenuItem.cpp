@@ -1,8 +1,12 @@
+/*
+ * Taskbar Taskbar - A modern, minimalist taskbar for XFCE
+ * Copyright (c) 2019-2020 Nicolas Szabo <nszabo@vivaldi.net>
+ * gnu.org/licenses/gpl-3.0
+ */
+
 #include "GroupMenuItem.hpp"
 
-#include "GroupWindow.hpp"
-
-static GtkTargetEntry entries[1] = { { "any", 0 ,0 } };
+static GtkTargetEntry entries[1] = {{"any", 0, 0}};
 
 GroupMenuItem::GroupMenuItem(GroupWindow* groupWindow)
 {
@@ -31,54 +35,80 @@ GroupMenuItem::GroupMenuItem(GroupWindow* groupWindow)
 	gtk_widget_show(GTK_WIDGET(mCloseButton));
 	gtk_grid_attach(mGrid, GTK_WIDGET(mCloseButton), 2, 0, 1, 1);
 
-	mDragSwitchTimeout.setup(250, [this](){
+	g_object_ref(mItem);
+
+	mDragSwitchTimeout.setup(250, [this]() {
 		mGroupWindow->activate(0);
 		return false;
 	});
 
 	g_signal_connect(G_OBJECT(mItem), "button-press-event",
-	G_CALLBACK(+[](GtkWidget* widget, GdkEventButton* event, GroupMenuItem* me){
-		gdk_device_ungrab((event)->device, (event)->time);
-		me->mGroupWindow->activate((event)->time);
-		return true;
-	}), this);
+		G_CALLBACK(+[](GtkWidget* widget, GdkEventButton* event, GroupMenuItem* me) {
+			if (event->button == 1)
+			{
+				gdk_device_ungrab((event)->device, (event)->time);
+				me->mGroupWindow->activate((event)->time);
+			}
+			/*else if (event->button == 3) //TODO debug
+			{
+				GtkWidget* menu = Wnck::buildActionMenu(me->mGroupWindow, NULL);
+
+				std::cout << "tst:" << me->mGroupWindow << std::endl
+						  << std::flush;
+
+				gtk_menu_attach_to_widget(GTK_MENU(menu), GTK_WIDGET(me->mItem), NULL);
+				gtk_menu_popup_at_widget(GTK_MENU(menu), GTK_WIDGET(me->mItem), GDK_GRAVITY_SOUTH_WEST, GDK_GRAVITY_NORTH_WEST, (GdkEvent*)event);
+			}*/
+			return true;
+		}),
+		this);
 
 	g_signal_connect(G_OBJECT(mItem), "enter-notify-event",
-	G_CALLBACK(+[](GtkWidget* widget, GdkEventCrossing* event, GroupMenuItem* me){
-		Help::Gtk::cssClassAdd(GTK_WIDGET(me->mItem), "hover");
-		if(event->state & GDK_BUTTON1_MASK)
-			me->mGroupWindow->activate(event->time);
-		return true;
-	}), this);
+		G_CALLBACK(+[](GtkWidget* widget, GdkEventCrossing* event, GroupMenuItem* me) {
+			if (event->state & GDK_BUTTON1_MASK)
+				me->mGroupWindow->activate(event->time);
+			Help::Gtk::cssClassAdd(GTK_WIDGET(me->mItem), "hover");
+			return true;
+		}),
+		this);
 
 	g_signal_connect(G_OBJECT(mItem), "leave-notify-event",
-	G_CALLBACK(+[](GtkWidget* widget, GdkEvent* event, GroupMenuItem* me){
-		Help::Gtk::cssClassRemove(GTK_WIDGET(me->mItem), "hover");
-		return true;
-	}), this);
+		G_CALLBACK(+[](GtkWidget* widget, GdkEvent* event, GroupMenuItem* me) {
+			Help::Gtk::cssClassRemove(GTK_WIDGET(me->mItem), "hover");
+			return true;
+		}),
+		this);
 
 	g_signal_connect(G_OBJECT(mItem), "drag-leave",
-	G_CALLBACK(+[](GtkWidget* widget, GdkDragContext *context, guint time, GroupMenuItem* me){
-		me->mGroupWindow->mGroup->setMouseLeaveTimeout();
-		me->mDragSwitchTimeout.stop();
-	}), this);
+		G_CALLBACK(+[](GtkWidget* widget, GdkDragContext* context, guint time, GroupMenuItem* me) {
+			me->mGroupWindow->mGroup->setMouseLeaveTimeout();
+			me->mDragSwitchTimeout.stop();
+		}),
+		this);
 
 	g_signal_connect(G_OBJECT(mItem), "drag-motion",
-	G_CALLBACK(+[](GtkWidget* widget, GdkDragContext* context, gint x, gint y, guint time, GroupMenuItem* me){
-		if(me->mDragSwitchTimeout.mTimeoutId == NULL)
-			me->mDragSwitchTimeout.start();
+		G_CALLBACK(+[](GtkWidget* widget, GdkDragContext* context, gint x, gint y, guint time, GroupMenuItem* me) {
+			if (me->mDragSwitchTimeout.mTimeoutId == NULL)
+				me->mDragSwitchTimeout.start();
 
-		me->mGroupWindow->mGroup->mLeaveTimeout.stop();
-		gdk_drag_status(context, GDK_ACTION_DEFAULT, time);
-		return true;
-	}), this);
+			me->mGroupWindow->mGroup->mLeaveTimeout.stop();
+			gdk_drag_status(context, GDK_ACTION_DEFAULT, time);
+			return true;
+		}),
+		this);
 
 	g_signal_connect(G_OBJECT(mCloseButton), "clicked",
-	G_CALLBACK(+[](GtkButton* button, GroupMenuItem* me){
-		Wnck::close(me->mGroupWindow, 0);
-	}), this);
+		G_CALLBACK(+[](GtkButton* button, GroupMenuItem* me) {
+			Wnck::close(me->mGroupWindow, 0);
+		}),
+		this);
 
 	gtk_drag_dest_set(GTK_WIDGET(mItem), GTK_DEST_DEFAULT_DROP, entries, 1, GDK_ACTION_MOVE);
+}
+
+GroupMenuItem::~GroupMenuItem()
+{
+	gtk_widget_destroy(GTK_WIDGET(mItem));
 }
 
 void GroupMenuItem::updateLabel()
@@ -89,6 +119,6 @@ void GroupMenuItem::updateLabel()
 void GroupMenuItem::updateIcon()
 {
 	GdkPixbuf* iconPixbuf = Wnck::getMiniIcon(mGroupWindow);
-	if(iconPixbuf != NULL)
+	if (iconPixbuf != NULL)
 		gtk_image_set_from_pixbuf(GTK_IMAGE(mIcon), iconPixbuf);
 }

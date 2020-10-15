@@ -1,39 +1,46 @@
-// ** opensource.org/licenses/GPL-3.0
+/*
+ * Taskbar Taskbar - A modern, minimalist taskbar for XFCE
+ * Copyright (c) 2019-2020 Nicolas Szabo <nszabo@vivaldi.net>
+ * gnu.org/licenses/gpl-3.0
+ */
 
 #ifndef TASKBAR_HPP
 #define TASKBAR_HPP
 
 extern "C"
 {
-	#include <libxfce4panel/libxfce4panel.h>
-	#include <libxfce4ui/libxfce4ui.h>
+#include <libxfce4panel/libxfce4panel.h>
+#include <libxfce4ui/libxfce4ui.h>
 }
-
-#include <iostream>
-
-#include <string>
 
 #include <gtk/gtk.h>
 #include <libwnck/libwnck.h>
 
-#include "Plugin.hpp"
-#include "Store.tpp"
-#include "GroupWindow.hpp"
-#include "Wnck.hpp"
-#include "Helpers.hpp"
+#include <iostream>
+#include <string>
 
+#include "GroupWindow.hpp"
+#include "Helpers.hpp"
+#include "Plugin.hpp"
+#include "Settings.hpp"
+#include "Store.tpp"
+#include "Wnck.hpp"
 class Group;
 
 namespace Taskbar
 {
 	void init();
-	
+
 	Group* prepareGroup(AppInfo* appInfo);
 
 	void moveButton(Group* moving, Group* dest);
 	void savePinned();
+	void redraw();
 
-	void onPanelResize(int size);
+	void hoverSupered(bool on);
+	void activateGroup(int nb, guint32 timestamp);
+
+	void onPanelResize(int size = -1);
 	void onPanelOrientationChange(GtkOrientation orientation);
 
 	extern GtkWidget* mBox;
@@ -41,6 +48,6 @@ namespace Taskbar
 
 	extern int mPanelSize;
 	extern int mIconSize;
-}
+} // namespace Taskbar
 
 #endif
