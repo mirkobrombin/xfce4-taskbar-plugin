@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-#ifndef TASKBAR_BUTTON_HPP
-#define TASKBAR_BUTTON_HPP
-=======
 /*
  * Taskbar Taskbar - A modern, minimalist taskbar for XFCE
  * Copyright (c) 2019-2020 Nicolas Szabo <nszabo@vivaldi.net>
@@ -10,7 +6,6 @@
 
 #ifndef DOCK_BUTTON_HPP
 #define DOCK_BUTTON_HPP
->>>>>>> mirai-patch/master
 
 #include <gtk/gtk.h>
 

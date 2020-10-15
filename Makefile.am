@@ -7,23 +7,6 @@ distclean-local:
 
 EXTRA_DIST = AUTHORS LICENCE intltool-extract.in intltool-merge.in intltool-update.in
 
-<<<<<<< HEAD
-# Installing the plugin's desktop file in the correct place
-#desktopdir = $(datadir)/xfce4/panel/plugins
-#desktop_DATA = $(PACKAGE_NAME).desktop
-
-#
-# Desktop file
-#
-desktopdir = $(datadir)/xfce4/panel/plugins
-desktop_in_files = taskbar.desktop
-desktop_DATA = $(desktop_in_files)
-
-EXTRA_DIST = $(desktop_in_files)
-
-# Clean generated files
-#CLEANFILES = $(desktop_DATA)
-=======
 DISTCLEANFILES =				\
 	aclocal.m4					\
 	compile						\
@@ -37,4 +20,3 @@ DISTCLEANFILES =				\
 	intltool-extract			\
 	intltool-merge				\
 	intltool-update
->>>>>>> mirai-patch/master

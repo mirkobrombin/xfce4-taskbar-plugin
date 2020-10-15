@@ -9,12 +9,8 @@
 #include "Taskbar.hpp"
 #include "GroupMenu.hpp"
 
-<<<<<<< HEAD
-static GtkTargetEntry entries[1] = { { "application/taskbar_group", 0 ,0 } };
-=======
 static GtkTargetEntry entries[1] = {{"application/taskbar_group", 0, 0}};
 static GtkTargetList* targetList = gtk_target_list_new(entries, 1);
->>>>>>> mirai-patch/master
 
 Group::Group(AppInfo* appInfo, bool pinned) : mGroupMenu(this)
 {
@@ -167,41 +163,19 @@ Group::Group(AppInfo* appInfo, bool pinned) : mGroupMenu(this)
 	if (mPinned)
 		gtk_widget_show(mButton);
 
-<<<<<<< HEAD
-	if(mPinned) gtk_widget_show(mButton);
-
-	g_object_set_data(G_OBJECT(mButton),"group", this);
-=======
 	g_object_set_data(G_OBJECT(mButton), "group", this);
->>>>>>> mirai-patch/master
 
 	gtk_button_set_relief(GTK_BUTTON(mButton), GTK_RELIEF_NONE);
 
 	gtk_widget_add_events(mButton, GDK_SCROLL_MASK);
 	gtk_button_set_always_show_image(GTK_BUTTON(mButton), true);
 
-<<<<<<< HEAD
-
-	if(mAppInfo != NULL && !mAppInfo->icon.empty())
-	{
-		/*	std::cout << "NEW GROUP:" << mAppInfo->name << std::endl;
-			std::cout << "PATH:" << mAppInfo->path << std::endl;
-			std::cout << "ICON:" << mAppInfo->icon << std::endl << std::endl;*/
-		if(mAppInfo->icon[0] == '/')
-		{
-			GdkPixbuf* iconPixbuf = gdk_pixbuf_new_from_file_at_scale (mAppInfo->icon.c_str(), 16, 16, true, NULL);
-			GtkWidget *icon = gtk_image_new_from_pixbuf (iconPixbuf);
-			
-			gtk_button_set_image(GTK_BUTTON(mButton), icon);
-		}
-=======
 	if (mAppInfo != NULL && !mAppInfo->icon.empty())
 	{
 		GtkWidget* icon;
 
 		if (mAppInfo->icon[0] == '/')
 			mIconPixbuf = gdk_pixbuf_new_from_file(mAppInfo->icon.c_str(), NULL);
->>>>>>> mirai-patch/master
 		else
 		{
 			icon = gtk_image_new_from_icon_name(mAppInfo->icon.c_str(), GTK_ICON_SIZE_BUTTON);
@@ -291,12 +265,6 @@ void Group::closeAll()
 
 void Group::resize()
 {
-<<<<<<< HEAD
-	gtk_widget_set_size_request(mButton, (((Taskbar::mPanelSize*1.2)/2)*2)-1, Taskbar::mPanelSize);
-
-	GtkWidget* img = gtk_button_get_image(GTK_BUTTON(mButton));
-	gtk_image_set_pixel_size(GTK_IMAGE(img), Taskbar::mIconSize);
-=======
 	gtk_widget_set_size_request(mButton, (round((Taskbar::mPanelSize * 1.2) / 2) * 2), Taskbar::mPanelSize);
 
 	GtkWidget* img;
@@ -315,7 +283,6 @@ void Group::resize()
 	}
 
 	gtk_widget_set_valign(img, GTK_ALIGN_CENTER);
->>>>>>> mirai-patch/master
 }
 
 void Group::setStyle(Style style, bool val)
@@ -646,15 +613,9 @@ void Group::onMouseEnter()
 {
 	mLeaveTimeout.stop();
 
-<<<<<<< HEAD
-	Taskbar::mGroups.forEach([](std::pair<AppInfo*, Group*> g)->void
-	{ 
-		g.second->mGroupMenu.mGroup->onMouseLeave();
-=======
 	Taskbar::mGroups.forEach([this](std::pair<AppInfo*, Group*> g) -> void {
 		if (&(g.second->mGroupMenu) != &(this->mGroupMenu))
 			g.second->mGroupMenu.mGroup->onMouseLeave();
->>>>>>> mirai-patch/master
 	});
 
 	mGroupMenu.popup();
@@ -748,88 +709,9 @@ void Group::onButtonPress(GdkEventButton* event)
 {
 	if (event->button == 3)
 	{
-<<<<<<< HEAD
-		GtkWidget* menu = gtk_menu_new();
-
-		GtkWidget* launchAnother = gtk_menu_item_new_with_label("Launch");
-		GtkWidget* separator = gtk_separator_menu_item_new();
-		GtkWidget* pinToggle = mPinned ? 
-			gtk_menu_item_new_with_label("Unpin") :
-			gtk_menu_item_new_with_label("Pin this app");
-
-		gtk_widget_show(separator);
-		gtk_widget_show(launchAnother);
-		gtk_widget_show(pinToggle);
-
-		gtk_menu_attach(GTK_MENU (menu), GTK_WIDGET(pinToggle), 0, 1, 0, 1);
-		gtk_menu_attach(GTK_MENU (menu), GTK_WIDGET(separator), 0, 1, 1, 2);
-		gtk_menu_attach(GTK_MENU (menu), GTK_WIDGET(launchAnother), 0, 1, 2, 3);
-
-		g_signal_connect(G_OBJECT(launchAnother), "activate",
-		G_CALLBACK(+[](GtkMenuItem *menuitem, Group* me)
-		{
-			AppInfos::launch(me->mAppInfo);
-		}), this);
-
-		g_signal_connect(G_OBJECT(pinToggle), "activate",
-		G_CALLBACK(+[](GtkMenuItem *menuitem, Group* me)
-		{
-			me->mPinned = !me->mPinned;
-			if(!me->mPinned)
-				me->updateStyle();
-			Taskbar::savePinned();
-			
-		}), this);
-
-		gtk_menu_attach_to_widget (GTK_MENU (menu), GTK_WIDGET(mButton), NULL);
-		gtk_menu_popup_at_widget (GTK_MENU (menu), GTK_WIDGET(mButton), GDK_GRAVITY_SOUTH_WEST, GDK_GRAVITY_NORTH_WEST, (GdkEvent *) event);
-	}
-	else
-	{
-		GtkWidget* menu = Wnck::getActionMenu(mWindows.get(mTopWindowIndex));
-
-		GtkWidget* launchAnother = gtk_menu_item_new_with_label("Launch another");
-		GtkWidget* separator = gtk_separator_menu_item_new();
-		GtkWidget* pinToggle = mPinned ? 
-			gtk_menu_item_new_with_label("Unpin") :
-			gtk_menu_item_new_with_label("Pin this app");
-
-		gtk_widget_show(separator);
-		gtk_widget_show(launchAnother);
-		gtk_widget_show(pinToggle);
-
-		gtk_menu_attach(GTK_MENU (menu), GTK_WIDGET(pinToggle), 0, 1, 0, 1);
-		gtk_menu_attach(GTK_MENU (menu), GTK_WIDGET(separator), 0, 1, 1, 2);
-		gtk_menu_attach(GTK_MENU (menu), GTK_WIDGET(launchAnother), 0, 1, 2, 3);
-
-		g_signal_connect(G_OBJECT(launchAnother), "activate",
-		G_CALLBACK(+[](GtkMenuItem *menuitem, Group* me)
-		{
-			AppInfos::launch(me->mAppInfo);
-		}), this);
-
-
-
-
-
-		g_signal_connect(G_OBJECT(pinToggle), "activate",
-		G_CALLBACK(+[](GtkMenuItem *menuitem, Group* me)
-		{
-			me->mPinned = !me->mPinned;
-			if(!me->mPinned)
-				me->updateStyle();
-			Taskbar::savePinned();
-			
-		}), this);
-
-		gtk_menu_attach_to_widget (GTK_MENU (menu), GTK_WIDGET(mButton), NULL);
-
-		gtk_menu_popup_at_widget (GTK_MENU (menu), GTK_WIDGET(mButton), GDK_GRAVITY_SOUTH_WEST, GDK_GRAVITY_NORTH_WEST, (GdkEvent *) event);
-=======
 		GroupWindow* win = Wnck::mGroupWindows.findIf([this](std::pair<gulong, GroupWindow*> e) -> bool {
 			return (e.second->mGroupAssociated && e.second->mGroup == this);
 		});
->>>>>>> mirai-patch/master
 
 		if (win == NULL && !mPinned)
 			return;
@@ -877,11 +759,7 @@ bool Group::onDragMotion(GtkWidget* widget, GdkDragContext* context, int x, int 
 		std::string target = name;
 		g_free(name);
 
-<<<<<<< HEAD
-		if(target != "application/taskbar_group")
-=======
 		if (target != "application/taskbar_group")
->>>>>>> mirai-patch/master
 		{
 			if (mWindowsCount > 0)
 			{

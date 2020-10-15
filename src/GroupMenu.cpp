@@ -15,12 +15,8 @@ GroupMenu::GroupMenu(Group* taskbarButton)
 	mWindow = gtk_window_new(GtkWindowType::GTK_WINDOW_POPUP);
 	gtk_widget_add_events(mWindow, GDK_SCROLL_MASK);
 	gtk_window_set_default_size(GTK_WINDOW(mWindow), 1, 1);
-<<<<<<< HEAD
-	mGroup = taskbarButton;
-=======
 	gtk_style_context_add_class(gtk_widget_get_style_context(GTK_WIDGET(mWindow)), "stld");
 	mGroup = dockButton;
->>>>>>> mirai-patch/master
 
 	mVisible = mMouseHover = false;
 
@@ -69,11 +65,6 @@ void GroupMenu::add(GroupMenuItem* menuItem)
 	if (mGroup->mSHover)
 	{
 		popup();
-<<<<<<< HEAD
-		if(mGroup->mWindowsCount > 1)
-			gtk_widget_show(mWindow);
-=======
->>>>>>> mirai-patch/master
 	}
 }
 
@@ -92,15 +83,9 @@ void GroupMenu::popup()
 	{
 		gint wx, wy;
 
-<<<<<<< HEAD
-	xfce_panel_plugin_position_widget(Plugin::mXfPlugin, mWindow, mGroup->mButton, &wx, &wy);
-	gtk_window_move(GTK_WINDOW(mWindow), wx, wy);
-	if(mGroup->mWindowsCount > 1)
-=======
 		xfce_panel_plugin_position_widget(Plugin::mXfPlugin, mWindow, mGroup->mButton, &wx, &wy);
 		gtk_window_move(GTK_WINDOW(mWindow), wx, wy);
 		//xfce_panel_plugin_block_autohide(Plugin::mXfPlugin, true);
->>>>>>> mirai-patch/master
 		gtk_widget_show(mWindow);
 
 		gtk_window_resize(GTK_WINDOW(mWindow), 1, 1);

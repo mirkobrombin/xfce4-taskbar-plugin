@@ -26,12 +26,6 @@ namespace Plugin
 
 		Settings::init();
 		AppInfos::init();
-<<<<<<< HEAD
-
-		Theme::init(gtk_widget_get_parent(GTK_WIDGET(mXfPlugin)));
-
-=======
->>>>>>> mirai-patch/master
 		Taskbar::init();
 		Wnck::init();
 		Theme::init();
@@ -39,11 +33,7 @@ namespace Plugin
 
 		//--------------------------------------------------
 
-<<<<<<< HEAD
-		gtk_container_add(GTK_CONTAINER(xfPlugin), GTK_WIDGET(Taskbar::mBox));
-=======
 		gtk_container_add(GTK_CONTAINER(mXfPlugin), GTK_WIDGET(Taskbar::mBox));
->>>>>>> mirai-patch/master
 
 		xfce_panel_plugin_menu_show_configure(mXfPlugin);
 		xfce_panel_plugin_menu_show_about(mXfPlugin);
@@ -51,17 +41,6 @@ namespace Plugin
 		//--------------------------------------------------
 
 		g_signal_connect(G_OBJECT(GTK_WIDGET(mXfPlugin)), "size-changed",
-<<<<<<< HEAD
-		G_CALLBACK(+[](XfcePanelPlugin *plugin, gint size){
-			Taskbar::onPanelResize(size);
-			return true;
-		}), NULL);
-
-		g_signal_connect(G_OBJECT(GTK_WIDGET(mXfPlugin)), "orientation-changed",
-		G_CALLBACK(+[](XfcePanelPlugin *plugin, GtkOrientation orientation){
-			Taskbar::onPanelOrientationChange(orientation);
-		}), NULL);
-=======
 			G_CALLBACK(+[](XfcePanelPlugin* plugin, gint size) {
 				Taskbar::onPanelResize(size);
 				return true;
@@ -85,7 +64,6 @@ namespace Plugin
 				Plugin::aboutDialog();
 			}),
 			NULL);
->>>>>>> mirai-patch/master
 	}
 
 	void getPointerPosition(gint* x, gint* y)

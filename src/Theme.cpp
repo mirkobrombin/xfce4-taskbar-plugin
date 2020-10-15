@@ -36,28 +36,6 @@ namespace Theme
 
 		std::string bgColor = gdk_rgba_to_string(&color);
 
-<<<<<<< HEAD
-		std::string cssStyle = setupColors() +
-		"button { border:none; border-radius:0; background:none; text-shadow:none; -gtk-icon-shadow:none; box-shadow:none; }"
-
-		".menu_item image { margin-left:0.4em;  }"
-		".menu_item label { margin:0.6em 0.5em 0.5em 0.5em; }"
-		".menu_item button { margin:0; padding:0; color:@dl_menu_item_color; }"
-		".menu_item button label { margin:0.1em 0.7em 0 0.7em; padding:0; font-weight:bold; }"
-		".menu_item grid button { background-color:transparent; }"
-
-		".menu_item { background-color:transparent; color:@dl_menu_item_color; }"
-		".menu_item.hover grid { background-color:alpha(@dl_menu_item_bgcolor_hover,0.5); }"
-		".menu_item.active grid { background-color:@dl_menu_item_bgcolor_hover; color:@dl_menu_item_color_hover; }"
-		".menu_item.active button { color:@dl_menu_item_color_hover; }"
-		".menu_item button:hover { background-color:alpha(#888, 0.5); }"
-
-		"box { margin:0; padding:0; border:0; border-radius:0; }"
-		".menu { background-color:@dl_menu_bgcolor; box-shadow:inset 0 0 0 1px alpha(black, 0.2); }"
-		".drop { border-left:5px solid slateblue; }";
-
-		if(!gtk_css_provider_load_from_data(mCssProvider, cssStyle.c_str(), -1, NULL))
-=======
 		std::string cssStyle =
 			setupColors() +
 			".stld button { border:none; border-radius:0; background:none; "
@@ -94,7 +72,6 @@ namespace Theme
     ".drop { border-left:5px solid red; }";*/
 
 		if (!gtk_css_provider_load_from_data(mCssProvider, cssStyle.c_str(), -1, NULL))
->>>>>>> mirai-patch/master
 		{
 			std::cerr << "ERROR: CSS LOAD FAILED !" << std::endl;
 		}
@@ -103,9 +80,6 @@ namespace Theme
 			gtk_style_context_add_provider_for_screen(mScreen, GTK_STYLE_PROVIDER(mCssProvider), GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 		}
 
-<<<<<<< HEAD
-		
-=======
 		/*return	"@define-color dl_menu_bgcolor " + menuBg + ";"
                     "@define-color dl_menu_item_color " + itemLabel + ";"
                     "@define-color dl_menu_item_color_hover " + itemLabelHover +
@@ -117,7 +91,6 @@ namespace Theme
 	void applyDefault(GtkWidget* widget)
 	{
 		gtk_style_context_remove_provider(gtk_widget_get_style_context(widget), GTK_STYLE_PROVIDER(mCssProvider));
->>>>>>> mirai-patch/master
 	}
 
 	std::string setupColors()
