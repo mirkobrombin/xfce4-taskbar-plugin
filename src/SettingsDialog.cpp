@@ -65,11 +65,11 @@ namespace SettingsDialog
 
 		// =====================================================================
 
-		GObject* noListForSingleWindow = gtk_builder_get_object(builder, "c_noListForSingleWindow");
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(noListForSingleWindow), Settings::noWindowsListIfSingle);
+		GObject* noListForSingleWindow = gtk_builder_get_object(builder, "c_showListForSingleWindow");
+		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(noListForSingleWindow), Settings::showWindowsListIfSingle);
 		g_signal_connect(noListForSingleWindow, "toggled",
-			G_CALLBACK(+[](GtkToggleButton* noWindowsListIfSingle) {
-				Settings::noWindowsListIfSingle.set(gtk_toggle_button_get_active(noWindowsListIfSingle));
+			G_CALLBACK(+[](GtkToggleButton* showWindowsListIfSingle) {
+				Settings::showWindowsListIfSingle.set(gtk_toggle_button_get_active(showWindowsListIfSingle));
 			}),
 			NULL);
 

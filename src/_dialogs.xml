@@ -80,10 +80,10 @@
 										<property name="row_spacing">6</property>
 										<property name="column_spacing">12</property>
 										<child>
-											<object class="GtkCheckButton" id="c_noListForSingleWindow">
+											<object class="GtkCheckButton" id="c_showListForSingleWindow">
 												<property name="visible">True</property>
 												<property name="can_focus">False</property>
-												<property name="label" translatable="yes">Don't show list for a single window</property>
+												<property name="label" translatable="yes">Show list also for a single window</property>
 												<property name="use_underline">True</property>
 												<property name="xalign">0</property>
 											</object>

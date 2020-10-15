@@ -1,54 +1,54 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Taskbar-plugin i18n file
+# Copyright (C) 2020 Mirko Brombin
+# This file is distributed under the same license as the Taskbar package.
+# Mirko Brombin <send@mirko.pm>, 2020.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: Taskbar 0.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-10 16:27+0200\n"
+"POT-Creation-Date: 2020-10-15 15:36+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Last-Translator: Mirko Brombin <send@mirko.pm>\n"
+"Language-Team: IT\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../src/Plugin.cpp:78
 msgid "Contributors:"
-msgstr ""
+msgstr "Contributori :"
 
 #: ../src/Plugin.cpp:89
 msgid "A modern, minimalist taskbar for XFCE."
-msgstr ""
+msgstr "Una Taskbar moderna e minimalista per XFCE."
 
 #: ../src/Wnck.cpp:185
 msgid "Launch another"
-msgstr ""
+msgstr "Nuova istanza"
 
 #: ../src/Wnck.cpp:185
 msgid "Launch"
-msgstr ""
+msgstr "Avvia"
 
 #: ../src/Wnck.cpp:200
 msgid "Unpin"
-msgstr ""
+msgstr "Rimuovi"
 
 #: ../src/Wnck.cpp:200
 msgid "Pin"
-msgstr ""
+msgstr "Fissa"
 
 #: ../src/Wnck.cpp:223
 msgid "Close All"
-msgstr ""
+msgstr "Chiudi tutto"
 
 #: ../src/SettingsDialog.cpp:21
 #, c-format
 msgid "<b>Only the first %u hotkeys(s) are enabled.</b>\n"
-msgstr ""
+msgstr "<b>Sono abilitati solo i primi %u tasti di scelta rapida.</b>\n"
 
 #: ../src/SettingsDialog.cpp:25
 #, c-format
@@ -56,94 +56,100 @@ msgid ""
 "The &lt;SUPER&gt;+%u combination seems already in use by another process.\n"
 "Check your Xfce settings."
 msgstr ""
+"La combinazione &lt;SUPER&gt;+%u è già in uso da un altro processo.\n"
+"Controlla le impostazioni di Xfce."
 
 #. namespace SettingsDialog
 #: ../src/taskbar.desktop.in.h:1
 msgid "A modern, minimalist taskbar for XFCE"
-msgstr ""
+msgstr "Una Taskbar moderna e minimale per XFCE"
 
 #: ../src/_dialogs.xml.h:1
 msgid "_Close"
-msgstr ""
+msgstr "Chiudi"
 
 #: ../src/_dialogs.xml.h:2
 msgid "Behavior"
-msgstr ""
+msgstr "Comportamento"
 
 #: ../src/_dialogs.xml.h:3
 msgid "Show list also for a single window"
-msgstr ""
+msgstr "Visualizza l'elenco anche per una singola finestra"
 
 #: ../src/_dialogs.xml.h:4
 msgid "Show only applications from the current workspace"
-msgstr ""
+msgstr "Mostra solo le applicazioni dall'area di lavoro corrente"
 
 #: ../src/_dialogs.xml.h:5
 msgid "Show only applications from the current display"
-msgstr ""
+msgstr "Mostra solo le applicazioni dalla visualizzazione corrente"
 
 #: ../src/_dialogs.xml.h:6
+#, fuzzy
 msgid "Appearance"
-msgstr ""
+msgstr "Aspetto"
 
 #: ../src/_dialogs.xml.h:7
 msgid "Indicator style :"
-msgstr ""
+msgstr "Stile indicatore :"
 
 #: ../src/_dialogs.xml.h:8
 msgid "Bars"
-msgstr ""
+msgstr "Barre"
 
 #: ../src/_dialogs.xml.h:9
 msgid "Dots"
-msgstr ""
+msgstr "Punti"
 
 #: ../src/_dialogs.xml.h:10
 msgid "Rectangles"
-msgstr ""
+msgstr "Rettangoli"
 
 #: ../src/_dialogs.xml.h:11
+#, fuzzy
 msgid "Indicator orientation :"
-msgstr ""
+msgstr "Orientamento indicatori :"
 
 #: ../src/_dialogs.xml.h:12
 msgid "Bottom"
-msgstr ""
+msgstr "Sotto"
 
 #: ../src/_dialogs.xml.h:13
 msgid "Right"
-msgstr ""
+msgstr "Destra"
 
 #: ../src/_dialogs.xml.h:14
 msgid "Top"
-msgstr ""
+msgstr "Sopra"
 
 #: ../src/_dialogs.xml.h:15
 msgid "Left"
-msgstr ""
+msgstr "Sinistra"
 
 #: ../src/_dialogs.xml.h:16
 msgid "Indicator color :"
-msgstr ""
+msgstr "Colore indicatore :"
 
 #: ../src/_dialogs.xml.h:17
 msgid "Force icons size :"
-msgstr ""
+msgstr "Forza dimensione icone :"
 
 #: ../src/_dialogs.xml.h:18
 msgid "Keyboard hotkeys"
-msgstr ""
+msgstr "Scarciatoie tastiera"
 
 #: ../src/_dialogs.xml.h:19
 msgid "Switch between applications with <SUPER>+[1, 2, ...]"
-msgstr ""
+msgstr "Passa tra le aþplicazioni con <SUPER>+[1, 2, ...]"
 
 #: ../src/_dialogs.xml.h:20
 msgid "Switch to the last window with <SUPER>"
-msgstr ""
+msgstr "Torna all'ultima finestra con <SUPER>"
 
 #: ../src/_dialogs.xml.h:21
 msgid ""
 "<b>This feature is disabled.</b>\n"
 "It requires X11 XInput2.0 extension which is is not provided by your system."
 msgstr ""
+"<b>Questa funzione è disabilitata.</b>\n"
+"Richiede l'estensione X11 XInput2.0 non presente nel sistema."

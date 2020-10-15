@@ -74,7 +74,7 @@ msgid "Behavior"
 msgstr "Comportement"
 
 #: ../src/_dialogs.xml.h:3
-msgid "Don't show list for a single window"
+msgid "Afficher la liste également pour une seule fenêtre"
 msgstr "Cacher la liste pour une seule fenêtre"
 
 #: ../src/_dialogs.xml.h:4

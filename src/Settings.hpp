@@ -29,7 +29,7 @@ namespace Settings
 	extern State<bool> forceIconSize;
 	extern State<int> iconSize;
 
-	extern State<bool> noWindowsListIfSingle;
+	extern State<bool> showWindowsListIfSingle;
 	extern State<bool> onlyDisplayVisible;
 	extern State<bool> onlyDisplayScreen;
 

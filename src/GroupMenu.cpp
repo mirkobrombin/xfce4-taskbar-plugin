@@ -73,13 +73,13 @@ void GroupMenu::remove(GroupMenuItem* menuItem)
 	gtk_container_remove(GTK_CONTAINER(mBox), GTK_WIDGET(menuItem->mItem));
 	gtk_window_resize(GTK_WINDOW(mWindow), 1, 1);
 
-	if (mGroup->mWindowsCount < (Settings::noWindowsListIfSingle ? 2 : 1))
+	if (mGroup->mWindowsCount < (Settings::showWindowsListIfSingle ? 2 : 1))
 		gtk_widget_hide(mWindow);
 }
 
 void GroupMenu::popup()
 {
-	if (mGroup->mWindowsCount >= (Settings::noWindowsListIfSingle ? 2 : 1))
+	if (mGroup->mWindowsCount >= (Settings::showWindowsListIfSingle ? 1 : 2))
 	{
 		gint wx, wy;
 

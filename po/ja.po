@@ -73,8 +73,8 @@ msgid "Behavior"
 msgstr "動作"
 
 #: ../src/_dialogs.xml.h:3
-msgid "Don't show list for a single window"
-msgstr "1つのウィンドウのリストを表示しない"
+msgid "Show list also for a single window"
+msgstr "単一ウィンドウのリストも表示"
 
 #: ../src/_dialogs.xml.h:4
 msgid "Show only applications from the current workspace"

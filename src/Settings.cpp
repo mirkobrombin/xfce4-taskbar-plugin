@@ -14,7 +14,7 @@ namespace Settings
 	State<bool> forceIconSize;
 	State<int> iconSize;
 
-	State<bool> noWindowsListIfSingle;
+	State<bool> showWindowsListIfSingle;
 	State<bool> onlyDisplayVisible;
 	State<bool> onlyDisplayScreen;
 
@@ -80,9 +80,9 @@ namespace Settings
 				Taskbar::redraw();
 			});
 
-		noWindowsListIfSingle.setup(g_key_file_get_boolean(mFile, "user", "noWindowsListIfSingle", NULL),
-			[](bool noWindowsListIfSingle) -> void {
-				g_key_file_set_boolean(mFile, "user", "noWindowsListIfSingle", noWindowsListIfSingle);
+		showWindowsListIfSingle.setup(g_key_file_get_boolean(mFile, "user", "showWindowsListIfSingle", NULL),
+			[](bool showWindowsListIfSingle) -> void {
+				g_key_file_set_boolean(mFile, "user", "showWindowsListIfSingle", showWindowsListIfSingle);
 				saveFile();
 			});
 

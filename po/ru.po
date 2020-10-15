@@ -72,8 +72,8 @@ msgid "Behavior"
 msgstr "Поведение"
 
 #: ../src/_dialogs.xml.h:3
-msgid "Don't show list for a single window"
-msgstr "Скрыть выпадающий список для одинарных окон"
+msgid "Show list also for a single window"
+msgstr "Показать список также для одного окна"
 
 #: ../src/_dialogs.xml.h:4
 msgid "Show only applications from the current workspace"

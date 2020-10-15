@@ -1,6 +1,7 @@
 /*
  * Taskbar Taskbar - A modern, minimalist taskbar for XFCE
  * Copyright (c) 2019-2020 Nicolas Szabo <nszabo@vivaldi.net>
+ * Copyright (c) 2020 Mirko Brombin <send@mirko.pm>
  * gnu.org/licenses/gpl-3.0
  */
 
@@ -147,16 +148,7 @@ namespace Taskbar
 		}
 		else
 		{
-			if (mPanelSize <= 20)
-				mIconSize = mPanelSize - 6;
-			else if (mPanelSize <= 28)
-				mIconSize = 16;
-			else if (mPanelSize <= 38)
-				mIconSize = 24;
-			else if (mPanelSize <= 41)
-				mIconSize = 32;
-			else
-				mIconSize = mPanelSize * 0.8;
+			mIconSize = mPanelSize - 10;
 		}
 
 		std::cout << "mPanelSize:" << mPanelSize << std::endl;
