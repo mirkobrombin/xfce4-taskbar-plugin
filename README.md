@@ -13,7 +13,7 @@ A simple Taskbar for XFCE
 ## Installation
 
 ### Arch Linux
-Taskbar can be installed from the [officiale AUR package](https://aur.archlinux.org/packages/xfce4-taskbar-plugin-git/).
+Taskbar can be installed from the [official AUR package](https://aur.archlinux.org/packages/xfce4-taskbar-plugin-git/).
 
 Ex. from yay AUR Helper:
 ```
