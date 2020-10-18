@@ -1,6 +1,5 @@
 .vscode/**
 obj/**
-libdocklike.so
 Makefile
 COPYING
 INSTALL
@@ -26,7 +25,7 @@ src/.libs/
 *.lo
 *.la
 src/_gresources.c
-src/docklike.desktop
+src/taskbar.desktop
 *TAGS
 GPATH
 m4/
