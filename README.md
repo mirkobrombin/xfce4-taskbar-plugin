@@ -1,7 +1,7 @@
 # xfce4-taskbar-plugin
 A simple Taskbar for XFCE
 
-![](https://git.mirko.pm/brombinmirko/xfce4-taskbar-plugin/-/raw/master/screenshot.png)
+![](https://github.com/mirkobrombin/xfce4-taskbar-plugin/blob/master/screenshot.png?raw=true)
 
 ## Building dependency
 - libxfce4panel-2.0
